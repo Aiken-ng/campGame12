@@ -1,18 +1,77 @@
-body{
-    background-color:white;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header{
-    background-color:rgb(255, 95, 95);
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 1rem;
 }
 
-nav a{
-    font-size:1.5em;
-    list-style-type:none;
-    margin: 0.6em 1em;
-    color:rgb(182, 182, 182);
-    display:inline;
-    line-height:2em;
-    padding:10px;
-    border-radius: 15px;
+.navbarBrand a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbarLinks {
+  display: flex;
+  list-style: none;
+}
+
+.navbarLinks li {
+  margin: 0 1rem;
+}
+
+.navbarLinks a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbarLinks a:hover {
+  color: #ff5733;
+}
+
+/* Mobile Navigation Toggle */
+.navbarToggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbarToggle span {
+  height: 2px;
+  width: 25px;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbarLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbarLinks.active {
+    display: flex;
+  }
+
+  .navbarToggle {
+    display: flex;
+  }
+
+  .navbarLinks li {
+    margin: 1rem 0;
+  }
 }

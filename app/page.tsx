@@ -16,11 +16,9 @@ const client = generateClient<Schema>();
 export default function App() {
   return (
     <main>
-      <Link href="/"><a>Home</a></Link>
-      <Link href="/"><a>About Us</a></Link>
-      <Link href="/"><a>Contact Us</a></Link>
-      <Link href="/"><a>Interesting facts</a></Link>
-      <Link href="/"><a>Don't click me</a></Link>
+      <ul>
+        <li><Link href="/"><a>Home</a></Link></li>
+      </ul>
     </main>
   );
 }

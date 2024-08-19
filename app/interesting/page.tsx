@@ -6,7 +6,7 @@ import type { Schema } from "@/amplify/data/resource";
 import "../all_pages.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
-import Link from "next/link"
+import Link from "next/link";
 // import "@aws-amplify/ui-react/styles.css";
 
 Amplify.configure(outputs);

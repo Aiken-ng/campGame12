@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
-import "../all_pages.css";
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
-import Link from "next/link"
+// import { useState, useEffect } from "react";
+// import { generateClient } from "aws-amplify/data";
+// import type { Schema } from "@/amplify/data/resource";
+// import "../all_pages.css";
+// import { Amplify } from "aws-amplify";
+// import outputs from "@/amplify_outputs.json";
+// import Link from "next/link"
 import type { AppProps } from 'next/app';
 import { Authenticator } from '@aws-amplify/ui-react';
 import { Amplify } from 'aws-amplify';

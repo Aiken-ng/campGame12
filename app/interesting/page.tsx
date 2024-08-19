@@ -17,10 +17,6 @@ import '@aws-amplify/ui-react/styles.css';
 
 Amplify.configure(outputs);
 
-const client = generateClient<Schema>();
-
-Amplify.configure(outputs);
-
 // <ul>
 //         <li><Link href="/"><a>Home</a></Link></li>
 //         <li><Link href="/about_us"><a>About Us</a></Link></li>

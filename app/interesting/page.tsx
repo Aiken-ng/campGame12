@@ -7,25 +7,39 @@ import "../all_pages.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import Link from "next/link";
+
 // import "@aws-amplify/ui-react/styles.css";
 
-Amplify.configure(outputs);
+// Amplify.configure(outputs);
 
-const client = generateClient<Schema>();
+// const client = generateClient<Schema>();
 
-export default function App() {
-  return(
-      <main>
-        <ul>
-        <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/about_us"><a>About Us</a></Link></li>
-        <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
-        <li><Link href="/login"><a>Do not click</a></Link></li>
-        </ul>
-      <div>
-        (In development...)
-      </div>
-      </main>
+// export default function App() {
+//   return(
+//       <main>
+//         <ul>
+//         <li><Link href="/"><a>Home</a></Link></li>
+//         <li><Link href="/about_us"><a>About Us</a></Link></li>
+//         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
+//         <li><Link href="/login"><a>Do not click</a></Link></li>
+//         </ul>
+//       <div>
+//         (In development...)
+//       </div>
+//       </main>
         
+//   );
+// }
+
+import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
+
+function App() {
+  return (
+    <div>
+      <h1>My App</h1>
+      <AmplifySignOut />
+    </div>
   );
 }
+
+export default withAuthenticator(App);

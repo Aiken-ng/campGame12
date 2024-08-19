@@ -25,6 +25,7 @@ export default function App() {
       <div>
         (In development...)
       </div>
+      </main>
         
   );
 }

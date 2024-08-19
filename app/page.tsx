@@ -14,7 +14,7 @@ Amplify.configure(outputs);
 const client = generateClient<Schema>();
 
 export default function App() {
-  return (
+  return(
       <header>
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
@@ -23,7 +23,8 @@ export default function App() {
         <li><Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><a>Do not click</a></Link></li>
         </ul>
       </header>
-      <main>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum, ex a maximus vestibulum, sem erat commodo purus, sit amet ullamcorper mi tellus sit amet justo. Nam imperdiet pellentesque ex, non pulvinar est molestie vel. Maecenas malesuada mauris vel nulla dapibus posuere. Vestibulum quis libero condimentum tellus tempor fringilla. Pellentesque diam lectus, pellentesque quis pharetra ac, vulputate id urna. Quisque rhoncus ultrices augue, a aliquet libero. Nunc in tincidunt quam, sed facilisis nunc.
+      <main>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin rutrum, ex a maximus vestibulum, sem erat commodo purus, sit amet ullamcorper mi tellus sit amet justo. Nam imperdiet pellentesque ex, non pulvinar est molestie vel. Maecenas malesuada mauris vel nulla dapibus posuere. Vestibulum quis libero condimentum tellus tempor fringilla. Pellentesque diam lectus, pellentesque quis pharetra ac, vulputate id urna. Quisque rhoncus ultrices augue, a aliquet libero. Nunc in tincidunt quam, sed facilisis nunc.
       Maecenas dapibus, metus vitae finibus vehicula, ligula nisl tincidunt purus, facilisis cursus nisl lectus in sem. Ut lobortis quam ut ante elementum, nec malesuada nunc porttitor. Nullam luctus elementum mauris, eu ultricies nisl venenatis a. Fusce vehicula gravida magna a semper. Nam elit enim, ullamcorper nec metus vel, sagittis eleifend lectus. Vivamus interdum, nunc quis auctor congue, sem arcu laoreet est, a congue purus mauris ac purus. Cras pretium sapien sem, vel maximus turpis blandit id. Nunc et sapien viverra, pellentesque ligula quis, vestibulum turpis. Vestibulum laoreet hendrerit nisl, nec volutpat arcu pellentesque et. Suspendisse eu lectus condimentum, posuere ex vitae, vehicula magna. Etiam elementum tristique elementum.
       Suspendisse commodo nibh vel risus aliquet condimentum. Praesent id ex erat. Nam euismod purus et eros rutrum, sit amet placerat felis maximus. In blandit consectetur ante, vel auctor mauris tincidunt vitae. Praesent blandit est a aliquet imperdiet. Mauris rutrum tellus gravida, congue sapien id, sagittis arcu. Quisque eget augue neque.
       Sed nisi enim, porta eget diam ut, tincidunt blandit purus. Aliquam finibus ullamcorper diam, scelerisque consectetur risus. Nam tristique laoreet scelerisque. Vivamus sit amet cursus dui. Vivamus ut mauris vitae nisl interdum blandit. Maecenas vel massa quam. Suspendisse ornare nisl et pretium eleifend.

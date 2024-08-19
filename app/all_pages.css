@@ -21,5 +21,6 @@ li a {
 }
 
 div {
-  margin:10px
+  margin:10px;
+  font-weight:bolder;
 }

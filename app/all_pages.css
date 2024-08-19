@@ -15,7 +15,8 @@ li a {
   color: white;
   text-align: center;
   padding: 10px 11px;
-  text-decoration: none;
+  text-decoration: underline;
+  font-weight:bold;
   font-size: 70%
 }
 

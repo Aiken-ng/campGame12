@@ -19,7 +19,7 @@ export default function App() {
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
         <li><Link href="/about_us"><a>About Us</a></Link></li>
-        <li><Link href="/"><a>Interesting Facts</a></Link></li>
+        <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="https://www.youtube.com/watch?v=xvFZjo5PgG0"><a>Do not click</a></Link></li>
         </ul>
       <div>

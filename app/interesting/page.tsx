@@ -34,7 +34,7 @@ import { Authenticator } from '@aws-amplify/ui-react';
 function App() {
   return (
     <Authenticator>
-      {({ signOut, user }) => (
+      {({ signOut }) => (
         <div>
           Welcome!!!
           <button onClick={signOut}>Sign out</button>

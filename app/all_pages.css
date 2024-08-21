@@ -20,6 +20,10 @@ li a {
   font-size: 70%
 }
 
+div a{
+    text-decoration: none;
+}
+
 div {
   margin:10px;
   font-weight:bolder;

@@ -7,8 +7,8 @@ import "../all_pages.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import Link from "next/link";
-
-// import "@aws-amplify/ui-react/styles.css";
+import "@aws-amplify/ui-react/styles.css";
+import { Authenticator } from '@aws-amplify/ui-react';
 
 // Amplify.configure(outputs);
 
@@ -31,15 +31,17 @@ import Link from "next/link";
 //   );
 // }
 
-import { AmplifySignOut, withAuthenticator } from '@aws-amplify/ui-react';
-
 function App() {
   return (
-    <div>
-      <h1>My App</h1>
-      <AmplifySignOut />
-    </div>
+    <Authenticator>
+      {({ signOut, user }) => (
+        <div>
+          <h1>Welcome {user.username}</h1>
+          <button onClick={signOut}>Sign out</button>
+        </div>
+      )}
+    </Authenticator>
   );
 }
 
-export default withAuthenticator(App);
+export default App;

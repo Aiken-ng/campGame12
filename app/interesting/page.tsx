@@ -10,9 +10,27 @@ import Link from "next/link";
 import "@aws-amplify/ui-react/styles.css";
 import { Authenticator } from '@aws-amplify/ui-react';
 
+// for the routing function;
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import awsExports from './aws-exports';
+import interesting from '../interesting';
+import about_us from '../about_us';
+import home from '../'
+
 // Amplify.configure(outputs);
 
 function App() {
+    useEffect(() => {
+    // Check if the user is authenticated after rendering
+    const checkAuth = async () => {
+      const { user } = await Authenticator.useAuthenticator();
+      if (user) {
+        navigate('/about_us');
+      }
+    };
+    checkAuth();
+  }, [navigate]);
+  
   return (
       <main>
         <ul>
@@ -23,10 +41,17 @@ function App() {
         </ul>
     <Authenticator>
       {({ signOut }) => (
-        <div>
-          Welcome!!!
-          <button onClick={signOut}>Sign out</button>
-        </div>
+        <Router>
+          <Routes>
+            <Route path="/about_us" element={<about_us />} />
+          </Routes>
+          {user && (
+            <div>
+              <h1>Welcome {user.username}</h1>
+              <button onClick={signOut}>Sign out</button>
+            </div>
+          )}
+        </Router>
       )}
     </Authenticator>
       </main>

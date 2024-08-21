@@ -14,15 +14,13 @@ import { Authenticator } from '@aws-amplify/ui-react';
 
 function App() {
   return (
-        <main>
+      <main>
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
         <li><Link href="/about_us"><a>About Us</a></Link></li>
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="/login"><a>Do not click</a></Link></li>
         </ul>
-      </main>
-          
     <Authenticator>
       {({ signOut }) => (
         <div>
@@ -31,6 +29,7 @@ function App() {
         </div>
       )}
     </Authenticator>
+      </main>
   );
 }
 

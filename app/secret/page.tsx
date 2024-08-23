@@ -53,8 +53,7 @@ function App() {
       </form>
       {showQR && (
         <div style={{ marginTop: '20px' }}>
-          Using group leader's phone, enter the bot...
-          <a href="https://t.me/andy_GG_2023_bot">Press this link for bot</a>:)))
+          <a href="https://t.me/andy_GG_2023_bot">Click here</a>:)))
         
           Congrats, Puzzle 4 is done!!!
         </div>

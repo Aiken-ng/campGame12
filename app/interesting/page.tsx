@@ -19,16 +19,12 @@ Amplify.configure(outputs);
 
 function App() {
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null);
     
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    if (password == "Hi") {
-      setError("wrong password");
+    if (password == "deeploveofGod") {
+      alert("password is valid")
     } else {
-      setError(null);
-      // Proceed with form submission or further processing
-      alert('Password is valid!');
     }
   };
   

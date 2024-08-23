@@ -33,7 +33,7 @@ function App() {
         <li><Link href="/"><a>Home</a></Link></li>
         <li><Link href="/about_us"><a>About Us</a></Link></li>
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
-        <li><Link href="/login"><a>Do not click</a></Link></li>
+        <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
         
         <form onSubmit={handleSubmit}>

@@ -25,6 +25,7 @@ function App() {
       setShowQR(false);
     }
   };
+    
   return (
       <main>
         <ul>

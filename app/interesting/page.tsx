@@ -12,12 +12,11 @@ import { Authenticator } from '@aws-amplify/ui-react';
 
 // for the routing function;
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
-import awsExports from './aws-exports';
 import interesting from '../interesting';
 import about_us from '../about_us';
 import home from '../'
 
-// Amplify.configure(outputs);
+Amplify.configure(outputs);
 
 function App() {
     useEffect(() => {

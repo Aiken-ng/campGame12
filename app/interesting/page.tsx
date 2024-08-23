@@ -17,14 +17,6 @@ import about_us from '../about_us/page';
 Amplify.configure(outputs);
 
 function App() {
-  const { user, signOut } = useAuthenticator();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      navigate('/about_us'); // Redirect upon successful login
-    }
-  }, [user, navigate]);
   
   return (
       <main>
@@ -34,20 +26,26 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="/login"><a>Do not click</a></Link></li>
         </ul>
-    <Authenticator>
-      {({ signOut, user }) => (
-        <div>
-          {user ? (
-            <div>
-              <h1>Welcome, {user.username}!</h1>
-              <button onClick={signOut}>Sign out</button>
-            </div>
-          ) : (
-            <div>Loading...</div> // This part will be handled by Authenticator
-          )}
+        
+        <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: '10px' }}>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
+          />
         </div>
-      )}
-    </Authenticator>
+        {error && (
+          <div style={{ color: 'red', marginBottom: '10px' }}>
+            <p>{error}</p>
+          </div>
+        )}
+        <button type="submit">Submit</button>
+      </form>
+
       </main>
   );
 }

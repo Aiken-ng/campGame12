@@ -20,7 +20,7 @@ function App() {
     useEffect(() => {
     // Check if the user is authenticated after rendering
     const checkAuth = async () => {
-      const { user } = await Authenticator.useAuthenticator();
+      const { user } = await useAuthenticator();
       if (user) {
         navigate('/about_us');
       }

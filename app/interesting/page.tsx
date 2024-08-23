@@ -25,7 +25,6 @@ function App() {
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (password == "deeploveofGod") {
-      alert("password is valid")
       setShowQR(true);
     } else {
       setShowQR(false);
@@ -62,9 +61,8 @@ function App() {
       {showQR && (
         <div style={{ marginTop: '20px' }}>
           Using group leader's phone, enter the bot...
-            
-          <a href="https://t.me/andy_GG_2023_bot">Press link for bot</a>:)))
-            
+          <a href="https://t.me/andy_GG_2023_bot">Press this link for bot</a>:)))
+        
           Congrats, Puzzle 4 is done!!!
         </div>
       )}

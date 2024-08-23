@@ -22,7 +22,7 @@ function App() {
   const { user, signOut } = useAuthenticator();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (user) {
       navigate('/about_us'); // Redirect upon successful login
     }
@@ -36,16 +36,20 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="/login"><a>Do not click</a></Link></li>
         </ul>
-    <div>
-      {user ? (
+    <Authenticator>
+      {({ signOut, user }) => (
         <div>
-          <h1>Welcome, {user.username}!</h1>
-          <button onClick={signOut}>Sign out</button>
+          {user ? (
+            <div>
+              <h1>Welcome, {user.username}!</h1>
+              <button onClick={signOut}>Sign out</button>
+            </div>
+          ) : (
+            <div>Loading...</div> // This part will be handled by Authenticator
+          )}
         </div>
-      ) : (
-        <div>Loading...</div> // Display loading state or authentication UI
       )}
-    </div>
+    </Authenticator>
       </main>
   );
 }

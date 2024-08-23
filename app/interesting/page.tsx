@@ -8,8 +8,6 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import Link from "next/link";
 import "@aws-amplify/ui-react/styles.css";
-
-import { useNavigate } from 'react-router-dom';
 import { useAuthenticator } from '@aws-amplify/ui-react';
 
 // for the routing function;

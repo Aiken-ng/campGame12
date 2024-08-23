@@ -17,7 +17,6 @@ function App() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [showQR, setShowQR] = useState(false);
-    
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (password == "deeploveofGod") {
@@ -26,7 +25,6 @@ function App() {
       setShowQR(false);
     }
   };
-  
   return (
       <main>
         <ul>

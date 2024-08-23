@@ -19,12 +19,16 @@ Amplify.configure(outputs);
 
 function App() {
     const [password, setPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const [showQR, setShowQR] = useState(false);
     
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (password == "deeploveofGod") {
       alert("password is valid")
+      setShowQR(true);
     } else {
+      setShowQR(false);
     }
   };
   
@@ -55,6 +59,15 @@ function App() {
         )}
         <button type="submit">Submit</button>
       </form>
+      {showQR && (
+        <div style={{ marginTop: '20px' }}>
+          Using group leader's phone, enter the bot...
+            
+          <a href="https://t.me/andy_GG_2023_bot">Press link for bot</a>:)))
+            
+          Congrats, Puzzle 4 is done!!!
+        </div>
+      )}
 
       </main>
   );

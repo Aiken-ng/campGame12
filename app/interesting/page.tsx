@@ -24,7 +24,7 @@ function App() {
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (password == "Hi") {
-      setError(validationError);
+      setError("wrong password");
     } else {
       setError(null);
       // Proceed with form submission or further processing

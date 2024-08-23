@@ -20,7 +20,7 @@ function App() {
   const { user, signOut } = useAuthenticator();
   const navigate = useNavigate();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (user) {
       navigate('/about_us'); // Redirect upon successful login
     }

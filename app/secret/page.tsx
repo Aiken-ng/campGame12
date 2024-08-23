@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import React from "react"
 import { generateClient } from "aws-amplify/data";
@@ -10,9 +9,7 @@ import outputs from "@/amplify_outputs.json";
 import Link from "next/link";
 import "@aws-amplify/ui-react/styles.css";
 import { useAuthenticator, Authenticator } from '@aws-amplify/ui-react';
-
 Amplify.configure(outputs);
-
 function App() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
@@ -25,8 +22,8 @@ function App() {
     } else {
       setShowQR(false);
     }
-  }
-    
+  };
+  
   return (
       <main>
         <ul>
@@ -35,7 +32,7 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
-        
+
         <form onSubmit={handleSubmit}>
         <div style={{ marginBottom: '10px' }}>
           <label htmlFor="password">Password:</label>
@@ -56,13 +53,13 @@ function App() {
       </form>
       {showQR && (
         <div style={{ marginTop: '20px' }}>
-
-          <a href="https://t.me/andy_GG_2023_bot">Click here :> </a>:)))
+          Using group leader's phone, enter the bot...
+          <a href="https://t.me/andy_GG_2023_bot">Press this link for bot</a>:)))
         
+          Congrats, Puzzle 4 is done!!!
         </div>
       )}
       </main>
   );
 }
-
 export default App;

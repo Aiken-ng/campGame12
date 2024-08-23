@@ -18,19 +18,6 @@ import about_us from '../about_us/page';
 Amplify.configure(outputs);
 
 function App() {
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null);
-    const [showQR, setShowQR] = useState(false);
-    
-    const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (password == "deeploveofGod") {
-      setShowQR(true);
-    } else {
-      setShowQR(false);
-    }
-  };
-  
   return (
       <main>
         <ul>
@@ -39,34 +26,6 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="/login"><a>Do not click</a></Link></li>
         </ul>
-        
-        <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '8px', boxSizing: 'border-box' }}
-          />
-        </div>
-        {error && (
-          <div style={{ color: 'red', marginBottom: '10px' }}>
-            <p>{error}</p>
-          </div>
-        )}
-        <button type="submit">Submit</button>
-      </form>
-      {showQR && (
-        <div style={{ marginTop: '20px' }}>
-          Using group leader's phone, enter the bot...
-          <a href="https://t.me/andy_GG_2023_bot">Press this link for bot</a>:)))
-        
-          Congrats, Puzzle 4 is done!!!
-        </div>
-      )}
-
       </main>
   );
 }

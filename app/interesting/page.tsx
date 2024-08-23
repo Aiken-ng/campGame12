@@ -13,8 +13,6 @@ import { Authenticator } from '@aws-amplify/ui-react';
 // for the routing function;
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import about_us from '../about_us';
-import home from '../';
-import interesting from '../interesting';
 
 Amplify.configure(outputs);
 

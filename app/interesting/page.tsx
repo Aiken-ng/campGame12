@@ -17,6 +17,9 @@ import about_us from '../about_us/page';
 Amplify.configure(outputs);
 
 function App() {
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    
     const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (password == "Hi") {

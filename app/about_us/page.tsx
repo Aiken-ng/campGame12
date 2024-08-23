@@ -13,7 +13,7 @@ Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
 
-export default function App() {
+export default function about_us() {
   return(
       <main>
         <ul>

@@ -17,6 +17,16 @@ import about_us from '../about_us/page';
 Amplify.configure(outputs);
 
 function App() {
+    const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (password == "Hi") {
+      setError(validationError);
+    } else {
+      setError(null);
+      // Proceed with form submission or further processing
+      alert('Password is valid!');
+    }
+  };
   
   return (
       <main>

@@ -14,6 +14,7 @@ import { useAuthenticator, Authenticator } from '@aws-amplify/ui-react';
 // for the routing function;
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import about_us from '../about_us/page';
+import Snakegame from '../snakegame'
 
 Amplify.configure(outputs);
 
@@ -26,6 +27,9 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
+        <div className="App">
+            <SnakeGame />
+        </div>
       </main>
   );
 }

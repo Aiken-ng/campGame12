@@ -1,0 +1,42 @@
+.snake-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.grid {
+    display: grid;
+    grid-template-rows: repeat(20, 20px);
+    grid-template-columns: repeat(20, 20px);
+}
+
+.cell {
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    border: 1px solid #ccc;
+}
+
+.snake {
+    background-color: green;
+}
+
+.food {
+    background-color: red;
+}
+
+.game-over {
+    position: absolute;
+    text-align: center;
+}
+
+.game-over p {
+    font-size: 24px;
+    color: red;
+}
+
+.game-over button {
+    font-size: 18px;
+    padding: 10px;
+}

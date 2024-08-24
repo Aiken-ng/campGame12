@@ -18,7 +18,11 @@ const SnakeGame: React.FC = () => {
     const [food, setFood] = useState<Position>(INITIAL_FOOD);
     const [direction, setDirection] = useState<Direction>('RIGHT');
     const [gameOver, setGameOver] = useState<boolean>(false);
+    
+    // Track touch start and end positions
+    const [touchStart, setTouchStart] = useState<Position | null>(null);
 
+    // Handle key down for desktop controls
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             switch (e.key) {
@@ -39,6 +43,38 @@ const SnakeGame: React.FC = () => {
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [direction]);
+
+    // Handle touch start and end events
+    const handleTouchStart = (e: React.TouchEvent) => {
+        const touch = e.touches[0];
+        setTouchStart({ x: touch.clientX, y: touch.clientY });
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+        if (!touchStart) return;
+        
+        const touch = e.changedTouches[0];
+        const deltaX = touch.clientX - touchStart.x;
+        const deltaY = touch.clientY - touchStart.y;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            // Horizontal swipe
+            if (deltaX > 0 && direction !== 'LEFT') {
+                setDirection('RIGHT');
+            } else if (deltaX < 0 && direction !== 'RIGHT') {
+                setDirection('LEFT');
+            }
+        } else {
+            // Vertical swipe
+            if (deltaY > 0 && direction !== 'UP') {
+                setDirection('DOWN');
+            } else if (deltaY < 0 && direction !== 'DOWN') {
+                setDirection('UP');
+            }
+        }
+        
+        setTouchStart(null);
+    };
 
     useEffect(() => {
         if (gameOver) return;
@@ -97,7 +133,7 @@ const SnakeGame: React.FC = () => {
     };
 
     return (
-        <div className="snake-game">
+        <div className="snake-game" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
             <div className="grid">
                 {Array.from({ length: GRID_SIZE }).map((_, row) => (
                     <div key={row} className="row">
@@ -123,6 +159,10 @@ const SnakeGame: React.FC = () => {
                 </div>
             )}
         </div>
+    );
+};
+
+export default SnakeGame;
     );
 };
 

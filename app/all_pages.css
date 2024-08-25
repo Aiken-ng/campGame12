@@ -25,6 +25,11 @@ div a{
     color: black;
 }
 
+body {
+    margin: 0px;
+    color: black;
+}
+
 div {
   margin:10px;
   font-weight:bolder;

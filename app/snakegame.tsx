@@ -10,6 +10,7 @@ const SnakeGame: React.FC = () => {
     const [direction, setDirection] = useState<Point>({ x: 0, y: -1 });
     const [food, setFood] = useState<Point>({ x: 5, y: 5 });
     const [gameOver, setGameOver] = useState(false);
+    const [score, setScore] = useState(0);
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const gridSize = 20;
@@ -88,6 +89,12 @@ const SnakeGame: React.FC = () => {
 
                 if (head.x === food.x && head.y === food.y) {
                     setFood(generateFoodPosition());
+                    setScore(prevScore => {
+                        const newScore = prevScore + 1;
+                        if (newScore > highScore) setHighScore(newScore);  // Update high score
+                        if (newScore === 10) alert('Congratulations! You have eaten 10 apples! Btw, the password that is required is from the puzzle piece that required a webcam... :)!');
+                        return newScore;
+                    });
                 } else {
                     newSnake.pop();
                 }

@@ -13,7 +13,8 @@ const SnakeGame: React.FC = () => {
 
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const gridSize = 20;
-    const canvasSize = 400;
+    const canvasHeight = 500;
+    const canvasWidth = 300;
     const touchStartRef = useRef<Point | null>(null);
 
     const generateFoodPosition = () => {
@@ -130,9 +131,9 @@ const SnakeGame: React.FC = () => {
         >
             <canvas
                 ref={canvasRef}
-                width={canvasSize}
-                height={canvasSize}
-                style={{ border: '1px solid black' }}
+                width={canvasWidth}
+                height={canvasHeight}
+                style={{ border: '1px solid black', overscrollBehavior: 'none'; }}
             />
             {gameOver && (
                 <div>

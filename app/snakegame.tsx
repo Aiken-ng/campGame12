@@ -130,8 +130,8 @@ const SnakeGame: React.FC = () => {
         >
             <canvas
                 ref={canvasRef}
-                width={canvasWidth}
-                height={canvasHeight}
+                width={canvasSize}
+                height={canvasSize}
                 style={{ border: '1px solid black', overscrollBehavior: 'none'}}
             />
             {gameOver && (

@@ -1,168 +1,146 @@
-// src/SnakeGame.tsx
-import React, { useState, useEffect } from 'react';
-import './SnakeGame.css';
+import React, { useState, useEffect, useRef } from 'react';
 
-type Direction = 'UP' | 'DOWN' | 'LEFT' | 'RIGHT';
-
-interface Position {
+interface Point {
     x: number;
     y: number;
 }
 
-const GRID_SIZE = 20;
-const INITIAL_SNAKE: Position[] = [{ x: 8, y: 8 }];
-const INITIAL_FOOD: Position = { x: 12, y: 12 };
-
 const SnakeGame: React.FC = () => {
-    const [snake, setSnake] = useState<Position[]>(INITIAL_SNAKE);
-    const [food, setFood] = useState<Position>(INITIAL_FOOD);
-    const [direction, setDirection] = useState<Direction>('RIGHT');
-    const [gameOver, setGameOver] = useState<boolean>(false);
-    
-    // Track touch start and end positions
-    const [touchStart, setTouchStart] = useState<Position | null>(null);
+    const [snake, setSnake] = useState<Point[]>([{ x: 10, y: 10 }]);
+    const [direction, setDirection] = useState<Point>({ x: 0, y: -1 });
+    const [food, setFood] = useState<Point>({ x: 5, y: 5 });
+    const [gameOver, setGameOver] = useState(false);
 
-    // Handle key down for desktop controls
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            switch (e.key) {
-                case 'ArrowUp':
-                    if (direction !== 'DOWN') setDirection('UP');
-                    break;
-                case 'ArrowDown':
-                    if (direction !== 'UP') setDirection('DOWN');
-                    break;
-                case 'ArrowLeft':
-                    if (direction !== 'RIGHT') setDirection('LEFT');
-                    break;
-                case 'ArrowRight':
-                    if (direction !== 'LEFT') setDirection('RIGHT');
-                    break;
-            }
+    const canvasRef = useRef<HTMLCanvasElement | null>(null);
+    const gridSize = 20;
+    const canvasSize = 400;
+    const touchStartRef = useRef<Point | null>(null);
+
+    const generateFoodPosition = () => {
+        return {
+            x: Math.floor(Math.random() * (canvasSize / gridSize)),
+            y: Math.floor(Math.random() * (canvasSize / gridSize)),
         };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [direction]);
-
-    // Handle touch start and end events
-    const handleTouchStart = (e: React.TouchEvent) => {
-        const touch = e.touches[0];
-        setTouchStart({ x: touch.clientX, y: touch.clientY });
     };
 
-    const handleTouchEnd = (e: React.TouchEvent) => {
-        if (!touchStart) return;
-        
-        const touch = e.changedTouches[0];
-        const deltaX = touch.clientX - touchStart.x;
-        const deltaY = touch.clientY - touchStart.y;
+    const handleKeyDown = (e: React.KeyboardEvent) => {
+        switch (e.key) {
+            case 'ArrowUp':
+                if (direction.y === 0) setDirection({ x: 0, y: -1 });
+                break;
+            case 'ArrowDown':
+                if (direction.y === 0) setDirection({ x: 0, y: 1 });
+                break;
+            case 'ArrowLeft':
+                if (direction.x === 0) setDirection({ x: -1, y: 0 });
+                break;
+            case 'ArrowRight':
+                if (direction.x === 0) setDirection({ x: 1, y: 0 });
+                break;
+        }
+    };
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        const touch = e.touches[0];
+        touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        if (!touchStartRef.current) return;
+
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - touchStartRef.current.x;
+        const deltaY = touch.clientY - touchStartRef.current.y;
 
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            // Horizontal swipe
-            if (deltaX > 0 && direction !== 'LEFT') {
-                setDirection('RIGHT');
-            } else if (deltaX < 0 && direction !== 'RIGHT') {
-                setDirection('LEFT');
-            }
+            if (deltaX > 0 && direction.x === 0) setDirection({ x: 1, y: 0 });
+            else if (deltaX < 0 && direction.x === 0) setDirection({ x: -1, y: 0 });
         } else {
-            // Vertical swipe
-            if (deltaY > 0 && direction !== 'UP') {
-                setDirection('DOWN');
-            } else if (deltaY < 0 && direction !== 'DOWN') {
-                setDirection('UP');
-            }
+            if (deltaY > 0 && direction.y === 0) setDirection({ x: 0, y: 1 });
+            else if (deltaY < 0 && direction.y === 0) setDirection({ x: 0, y: -1 });
         }
-        
-        setTouchStart(null);
+
+        touchStartRef.current = null; // Reset after move
     };
 
     useEffect(() => {
         if (gameOver) return;
 
-        const moveSnake = () => {
-            const newSnake = [...snake];
-            const head = { ...newSnake[0] };
+        const interval = setInterval(() => {
+            setSnake(prev => {
+                const newSnake = [...prev];
+                const head = { ...newSnake[0] };
 
-            switch (direction) {
-                case 'UP':
-                    head.y -= 1;
-                    break;
-                case 'DOWN':
-                    head.y += 1;
-                    break;
-                case 'LEFT':
-                    head.x -= 1;
-                    break;
-                case 'RIGHT':
-                    head.x += 1;
-                    break;
-            }
+                head.x += direction.x;
+                head.y += direction.y;
 
-            newSnake.unshift(head);
-            if (head.x === food.x && head.y === food.y) {
-                setFood({
-                    x: Math.floor(Math.random() * GRID_SIZE),
-                    y: Math.floor(Math.random() * GRID_SIZE),
-                });
-            } else {
-                newSnake.pop();
-            }
+                if (
+                    head.x < 0 || head.x >= canvasSize / gridSize ||
+                    head.y < 0 || head.y >= canvasSize / gridSize ||
+                    newSnake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
+                ) {
+                    setGameOver(true);
+                    clearInterval(interval);
+                    return prev;
+                }
 
-            if (
-                head.x < 0 ||
-                head.x >= GRID_SIZE ||
-                head.y < 0 ||
-                head.y >= GRID_SIZE ||
-                newSnake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
-            ) {
-                setGameOver(true);
-            } else {
-                setSnake(newSnake);
-            }
-        };
+                newSnake.unshift(head);
 
-        const interval = setInterval(moveSnake, 200);
+                if (head.x === food.x && head.y === food.y) {
+                    setFood(generateFoodPosition());
+                } else {
+                    newSnake.pop();
+                }
+
+                return newSnake;
+            });
+        }, 100);
+
         return () => clearInterval(interval);
-    }, [snake, direction, food, gameOver]);
+    }, [direction, food, gameOver]);
 
-    const restartGame = () => {
-        setSnake(INITIAL_SNAKE);
-        setFood(INITIAL_FOOD);
-        setDirection('RIGHT');
+    useEffect(() => {
+        if (canvasRef.current) {
+            const ctx = canvasRef.current.getContext('2d');
+            if (ctx) {
+                ctx.clearRect(0, 0, canvasSize, canvasSize);
+                ctx.fillStyle = 'green';
+                snake.forEach(segment => ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize, gridSize));
+
+                ctx.fillStyle = 'red';
+                ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
+            }
+        }
+    }, [snake, food]);
+
+    const resetGame = () => {
+        setSnake([{ x: 10, y: 10 }]);
+        setDirection({ x: 0, y: -1 });
+        setFood(generateFoodPosition());
         setGameOver(false);
     };
 
     return (
-        <div className="snake-game" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
-            <div className="grid">
-                {Array.from({ length: GRID_SIZE }).map((_, row) => (
-                    <div key={row} className="row">
-                        {Array.from({ length: GRID_SIZE }).map((_, col) => (
-                            <div
-                                key={col}
-                                className={`cell ${
-                                    snake.some(segment => segment.x === col && segment.y === row)
-                                        ? 'snake'
-                                        : food.x === col && food.y === row
-                                        ? 'food'
-                                        : ''
-                                }`}
-                            />
-                        ))}
-                    </div>
-                ))}
-            </div>
+        <div
+            tabIndex={0}
+            onKeyDown={handleKeyDown}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            style={{ outline: 'none' }}
+        >
+            <canvas
+                ref={canvasRef}
+                width={canvasSize}
+                height={canvasSize}
+                style={{ border: '1px solid black' }}
+            />
             {gameOver && (
-                <div className="game-over">
-                    <p>Game Over!</p>
-                    <button onClick={restartGame}>Restart</button>
+                <div>
+                    <h2>Game Over</h2>
+                    <button onClick={resetGame}>Restart</button>
                 </div>
             )}
         </div>
-    );
-};
-
-export default SnakeGame;
     );
 };
 

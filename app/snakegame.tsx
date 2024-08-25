@@ -91,7 +91,6 @@ const SnakeGame: React.FC = () => {
                     setFood(generateFoodPosition());
                     setScore(prevScore => {
                         const newScore = prevScore + 1;
-                        if (newScore > highScore) setHighScore(newScore);  // Update high score
                         if (newScore === 10) alert('Congratulations! You have eaten 10 apples! Btw, the password that is required is from the puzzle piece that required a webcam... :)!');
                         return newScore;
                     });

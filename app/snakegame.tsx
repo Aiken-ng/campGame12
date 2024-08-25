@@ -138,7 +138,7 @@ const SnakeGame: React.FC = () => {
                 ref={canvasRef}
                 width={canvasSize}
                 height={canvasSize}
-                style={{ border: '1px solid black', overscrollBehavior: 'none'}}
+                style={{ border: '1px solid black', outline: 'none', overscrollBehavior: 'none', overflow: 'hidden', touchAction: 'none', width: '100%';}}
             />
             {gameOver && (
                 <div>

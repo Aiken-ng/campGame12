@@ -55,7 +55,7 @@ function App() {
         <div style={{ marginTop: '20px' }}>
           <a href="https://t.me/andy_GG_2023_bot">Click here</a>:)))
             <p>or scan here</p>:
-            <img src="/tele-qrcode.png" alt="telegram QR code-image!" />
+            <img src="/tele-qrcode.png" style="height: 400px;" alt="telegram QR code-image!" />
           Congrats, Puzzle 4 is done!!!!
         </div>
       )}

@@ -27,7 +27,7 @@ function App() {
         <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
-        <div className="App" style='margin:0px'>
+        <div className="App">
             <Snakegame />
         </div>
       </main>

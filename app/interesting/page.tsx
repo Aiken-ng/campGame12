@@ -28,6 +28,7 @@ function App() {
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
         <div className="App">
+            Eat 10 apples!
             <Snakegame />
         </div>
       </main>

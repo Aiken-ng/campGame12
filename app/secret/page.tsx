@@ -54,8 +54,9 @@ function App() {
       {showQR && (
         <div style={{ marginTop: '20px' }}>
           <a href="https://t.me/andy_GG_2023_bot">Click here</a>:)))
-        
-          Congrats, Puzzle 4 is done!!!
+            <p>or scan here</p>:
+            <img src="/tele-qrcode.png" alt="telegram QR code-image!" />
+          Congrats, Puzzle 4 is done!!!!
         </div>
       )}
       </main>

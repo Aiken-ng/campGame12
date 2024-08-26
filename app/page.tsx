@@ -29,7 +29,7 @@ export default function App() {
       Those who dared to follow the clues found themselves drawn to this word, <Link href="/secret"><a>here</a></Link>, as if by some invisible force. It was the culmination of their efforts, the moment when everything fell into place. The reader's attention was captured, their curiosity piqued, and they could not resist the urge to explore further. The word was simple, yet it carried with it the weight of the entire narrative, the promise of something more.
       In the end, it was not the complexity of the story that mattered, but the discovery of that one word, <Link href="/secret"><a>here</a></Link>, that brought everything into focus. The rest of the text faded into the background, its meaning irrelevant compared to the power of that single word. It was a moment of clarity, a realization that all the reader had been searching for was right there, hidden in plain sight.
       As the reader's eyes settled on the word, <Link href="/secret"><a>here</a></Link>, they knew they had reached the end of their journey. The story had been long and winding, filled with distractions and dead ends, but in the end, it was all worth it. The word stood as a beacon, guiding them to the conclusion they had been seeking all along. And with that, the journey was complete.
-      please click here
+      please click <Link href="/"><a>here</a></Link>
       </div>
       </main>
   );

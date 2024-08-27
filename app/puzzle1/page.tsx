@@ -23,8 +23,8 @@ function App() {
       <main>
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/about_us"><a>About Us</a></Link></li>
-        <li><Link href="/interesting"><a>Interesting Facts</a></Link></li>
+        <li><Link href="/puzzle1"><a>puzzle1</a></Link></li>
+        <li><Link href="/puzzle1_clue"><a>Puzzle1_clue</a></Link></li>
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
         <div className="App">

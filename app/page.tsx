@@ -19,9 +19,10 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
-      setDisplayedText(prev => prev + text[index]);
-      index += 1;
-      if (index >= text.length) {
+      if (index < text.length) {
+        setDisplayedText(prev => prev + text[index]);
+        index += 1;
+      } else {
         clearInterval(intervalId);
       }
     }, speed);
@@ -36,7 +37,6 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
       borderRight: '3px solid #000',
       whiteSpace: 'pre-wrap', // Ensure text wraps
       overflowWrap: 'break-word', // Handle long words
-      width: 'fit-content',
       maxWidth: '100%', // Ensure it fits within its container
       animation: 'blink-caret 0.75s step-end infinite',
     }}>
@@ -61,9 +61,8 @@ export default function App() {
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
       <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <h1>Typing Effect Example</h1>
-      <TypingEffect text="Hello, this is a longer text that should wrap properly inside the container without overflowing." speed={100} />
-    </div>
+      <TypingEffect text="Hello, I am jager. I am stuck in this dungeon, and you are stuck with me, HAHAHAHAHAHAHA. please get me out... I heard the clue is here..." speed={100} />
+      </div>
       </main>
   );
 }

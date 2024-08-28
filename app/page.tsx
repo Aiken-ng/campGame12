@@ -61,7 +61,8 @@ export default function App() {
         </ul>
       <div>
         <h1>Typing Effect Example</h1>
-        <TypingEffect text="Hello, Welcome home!" speed={50} />
+        <TypingEffect text="Hello, welcome to the dungeon. You are stuck here with me, Mwahahahaha. I'm stuck here too, though.
+          I heard that is a way out, it is found here." speed={50} />
       </div>
       </main>
   );

@@ -12,6 +12,44 @@ import { useAuthenticator, Authenticator } from '@aws-amplify/ui-react';
 Amplify.configure(outputs);
 import Snakegame from "../snakegame";
 
+const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed = 100 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      if (index < text.length) {
+        setDisplayedText(prev => prev + text[index]);
+        index += 1;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, speed);
+
+    return () => clearInterval(intervalId);
+  }, [text, speed]);
+
+  return (
+    <div style={{
+      fontFamily: 'Courier New, Courier, monospace',
+      fontSize: '20px',
+      borderRight: '3px solid #000',
+      whiteSpace: 'pre-wrap', // Ensure text wraps
+      overflowWrap: 'break-word', // Handle long words
+      maxWidth: '100%', // Ensure it fits within its container
+      animation: 'blink-caret 0.75s step-end infinite',
+    }}>
+      {displayedText}
+      <style>{`
+        @keyframes blink-caret {
+          from, to { border-color: transparent; }
+          50% { border-color: black; }
+        }
+      `}</style>
+    </div>
+  );
+};
+
 function App() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
@@ -60,14 +98,18 @@ function App() {
         <div style={{ marginTop: '20px' }}>
           <a href="https://t.me/andy_GG_2023_bot">Click here</a>:)))
             <p>or scan here</p>:
-            <img src="/tele-qrcode.png" style={{ height: '400px' }} alt="telegram QR code-image!" />
+            <img src="/tele-qrcode.png" style={{ height: '340px' }} alt="telegram QR code-image!" />
           Congrats, Puzzle 4 is done!!!!
         </div>
       )}
+          
+        <div style={{ width: '300px' }}> {/* Set a container width if needed */}
+      <TypingEffect text="why is there a password? ... Helllp! theres a snake! killem, I mean feed him, who knows he might give you a clue?" speed={50} />
+      </div>
         <div className="App">
-            Eat 10 apples!
             <Snakegame />
         </div>
+        Eat 10 apples
       </main>
   );
 }

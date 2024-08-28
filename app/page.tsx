@@ -20,6 +20,8 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
     let index = 0;
     const intervalId = setInterval(() => {
       if (index < text.length)  {
+        console.log(text[index])
+        console.log(index)
         setDisplayedText(prev => prev + text[index]);
         index += 1;
       } else {
@@ -61,7 +63,7 @@ export default function App() {
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
       <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <TypingEffect text="Heello, I am jager. I am stuck in this dungeon, and you are stuck with me, HAHAHAHAHAHAHA. please get me out... I heard the clue is here... " speed={150} />
+      <TypingEffect text="Heello, I am jager. I am stuck in this dungeon, and you are stuck with me, HAHAHAHAHAHAHA. please get me out... I heard the clue is here... " speed={80} />
       </div>
       </main>
   );

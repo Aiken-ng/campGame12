@@ -34,9 +34,10 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
       fontFamily: 'Courier New, Courier, monospace',
       fontSize: '20px',
       borderRight: '3px solid #000',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
+      whiteSpace: 'pre-wrap', // Ensure text wraps
+      overflowWrap: 'break-word', // Handle long words
       width: 'fit-content',
+      maxWidth: '100%', // Ensure it fits within its container
       animation: 'blink-caret 0.75s step-end infinite',
     }}>
       {displayedText}
@@ -59,11 +60,10 @@ export default function App() {
         <li><Link href="/puzzle1_clue"><a>Puzzle1_clue</a></Link></li>
         <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
         </ul>
-      <div>
-        <h1>Typing Effect Example</h1>
-        <TypingEffect text="Hello, welcome to the dungeon. You are stuck here with me, Mwahahahaha. I'm stuck here too, though.
-          I heard that is a way out, it is found here." speed={50} />
-      </div>
+      <div style={{ width: '300px' }}> {/* Set a container width if needed */}
+      <h1>Typing Effect Example</h1>
+      <TypingEffect text="Hello, this is a longer text that should wrap properly inside the container without overflowing." speed={100} />
+    </div>
       </main>
   );
 }

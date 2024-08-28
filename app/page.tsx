@@ -19,7 +19,7 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
-      if (index < text.length)  {
+      if (index < text.length-1)  {
         console.log(text[index])
         console.log(index)
         setDisplayedText(prev => prev + text[index]);

@@ -18,7 +18,7 @@ const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed 
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
-      if (index < text.length) {
+      if (index < text.length-1) {
         setDisplayedText(prev => prev + text[index]);
         index += 1;
       } else {
@@ -104,7 +104,7 @@ function App() {
       )}
           
         <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <TypingEffect text="why is there a password? ... Helllp! theres a snake! killem, I mean feed him, who knows he might give you a clue?" speed={50} />
+      <TypingEffect text="Whhy is there a password? ... Helllp! theres a snake! killem, I mean feed him, who knows he might give you a clue???" speed={50} />
       </div>
         <div className="App">
             <Snakegame />

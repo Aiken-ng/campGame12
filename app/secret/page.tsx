@@ -106,7 +106,7 @@ function App() {
         <div style={{ width: '300px' }}> {/* Set a container width if needed */}
       <TypingEffect text="Whhy is there a password? ... Helllp! theres a snake! killem, I mean feed him, who knows he might give you a clue???" speed={50} />
       </div>
-        <div className="App">
+        <div className="App" style={{ overflow: 'hidden'}}>
             <Snakegame />
         </div>
         Eat 10 apples

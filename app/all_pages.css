@@ -16,7 +16,8 @@ li a {
   text-align: center;
   padding: 10px 11px;
   text-decoration: underline;
-  font-size: 70%
+  font-size: 70%;
+  font-weight:bolder;
 }
 
 div a{
@@ -37,4 +38,5 @@ body {
 
 div {
   margin:10px;
+  font-weight:bolder;
 }

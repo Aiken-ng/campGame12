@@ -12,18 +12,23 @@ import Link from "next/link"
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
+const handleLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        event.preventDefault(); // Prevent the default link behavior
+        alert("Why did you click?");
+        alert("I told you not to click?");        
+};
 
 export default function about_us() {
   return(
       <main>
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/puzzle1"><a>puzzle1</a></Link></li>
-        <li><Link href="/puzzle1_clue"><a>Puzzle1_clue</a></Link></li>
-        <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
+        <li><Link href="/puzzle3"><a>Puzzle 3</a></Link></li>
+        <li><Link href="/puzzle3_clue"><a>Puzzle 3 hint 1</a></Link></li>
+          <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
       <div>
-        The clue: every "here";
+        <a href="#" onClick={handleLinkClick}>Do not click</a>
       </div>
       </main>
   );

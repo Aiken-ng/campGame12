@@ -65,7 +65,7 @@ export default function App() {
       <div style={{ width: '300px' }}> {/* Set a container width if needed */}
       <div>∧,,,∧<br />(  ̳• · • ̳)<br />/    づ♡</div>
       <TypingEffect text="Weelcome to Puzzle 3!!! I am Agapiii, your guide!! I hope you had a good rest on the cushion!! Congratulations on coming this far!
-Here you'll find another puzzle! Solve it to get to advance in your quest! 
+Here you'll find another puzzle! Solve it to advance in your quest! 
 Hint: Search the web page for lots of clues! Have fun!
 " speed={80} /></div>
       </main>

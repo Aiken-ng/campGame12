@@ -99,6 +99,7 @@ function App() {
           Congrats on completing Puzzle 3!
         </div>
       )}
+        <div><Link href="https://www.youtube.com/watch?v=7ypHVEiHbHo"><a>https://www.youtube.com/watch?v=7ypHVEiHbHo</a></Link></div>
       </main>
   );
 }

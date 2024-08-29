@@ -8,9 +8,7 @@ import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import Link from "next/link";
 import "@aws-amplify/ui-react/styles.css";
-import { useAuthenticator, Authenticator } from '@aws-amplify/ui-react';
 Amplify.configure(outputs);
-import Snakegame from "../snakegame";
 
 const TypingEffect: React.FC<{ text: string; speed?: number }> = ({ text, speed = 100 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -101,10 +99,6 @@ function App() {
           Congrats on completing Puzzle 3!
         </div>
       )}
-        <div className="App" style={{ overflow: 'hidden'}}>
-            <Snakegame />
-        </div>
-        Eat 10 apples
       </main>
   );
 }

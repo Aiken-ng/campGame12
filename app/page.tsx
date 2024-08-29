@@ -58,13 +58,22 @@ export default function App() {
       <main>
         <ul>
         <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/puzzle1"><a>puzzle1</a></Link></li>
-        <li><Link href="/puzzle1_clue"><a>Puzzle1_clue</a></Link></li>
-        <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
+        <li><Link href="/puzzle3"><a>Puzzle 3</a></Link></li>
+        <li><Link href="/puzzle3_clue"><a>Puzzle 3 hint 1</a></Link></li>
+        <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
       <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <TypingEffect text="Heello, I am jager. I am stuck in this dungeon, and you are stuck with me, HAHAHAHAHAHAHA. please get me out... I heard the clue is here... " speed={80} />
-      </div>
+      <TypingEffect text="Weelcome to Puzzle 3!!!
+
+I am Agapiii, your guide!! I hope you had a good rest on the cushion!! Congratulations on coming this far!
+ ∧,,,∧
+(  ̳• · • ̳)
+/    づ♡ 
+
+Here you'll find another puzzle! Solve it to get to advance in your quest! 
+
+Hint: Search the web page for lots of clues! Have fun!
+" speed={80} /></div>
       </main>
   );
 }

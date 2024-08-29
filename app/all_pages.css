@@ -25,7 +25,7 @@ div a{
     color: black;
 }
 
-div a::selection {
+.highlight::selection {
   text-decoration: none;
   background-color: yellow;
 }

@@ -142,8 +142,8 @@ const SnakeGame: React.FC = () => {
             />
             {gameOver && (
                 <div>
-                    <h2>Game Over</h2>
-                    <button onClick={resetGame}>Restart</button>
+                    <h2>Continue fighting!</h2>
+                    <button onClick={resetGame}>let's go again!</button>
                 </div>
             )}
         </div>

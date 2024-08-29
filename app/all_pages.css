@@ -25,6 +25,12 @@ div a{
     color: black;
 }
 
+div a::selection {
+  text-decoration: none;
+  background-color: yellow;
+}
+
+
 body {
     margin: 0px;
     color: black;
@@ -33,9 +39,4 @@ body {
 div {
   margin:10px;
   font-weight:bolder;
-}
-
-p::selection {
-  color:black;
-  background-colour: yellow;
 }

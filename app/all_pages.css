@@ -34,3 +34,8 @@ div {
   margin:10px;
   font-weight:bolder;
 }
+
+p::selection {
+  color:black;
+  background-colour: yellow;
+}

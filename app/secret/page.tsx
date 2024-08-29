@@ -67,12 +67,11 @@ function App() {
   
   return (
       <main>
-<ul>
+        <ul>
         <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/puzzle1"><a>puzzle1</a></Link></li>
-        <li><Link href="/puzzle1_clue"><a>Puzzle1_clue</a></Link></li>
-        <li><Link href="/secret"><a>Secret Dungeon</a></Link></li>
-        <li><Link href="https://shattereddisk.github.io/rickroll/rickroll.mp4"><a>Do not click</a></Link></li>
+        <li><Link href="/puzzle3"><a>Puzzle 3</a></Link></li>
+        <li><Link href="/puzzle3_clue"><a>Puzzle 3 hint 1</a></Link></li>
+          <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
 
         <form onSubmit={handleSubmit}>
@@ -99,13 +98,9 @@ function App() {
           <a href="https://t.me/andy_GG_2023_bot">Click here</a>:)))
             <p>or scan here</p>:
             <img src="/tele-qrcode.png" style={{ height: '340px' }} alt="telegram QR code-image!" />
-          Congrats, Puzzle 4 is done!!!!
+          Congrats on completing Puzzle 3!
         </div>
       )}
-          
-        <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <TypingEffect text="Whhy is there a password? ... Helllp! theres a snake! killem, I mean feed him, who knows he might give you a clue???" speed={50} />
-      </div>
         <div className="App" style={{ overflow: 'hidden'}}>
             <Snakegame />
         </div>

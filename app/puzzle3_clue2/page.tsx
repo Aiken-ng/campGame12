@@ -35,8 +35,7 @@ export default function about_us() {
           <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
       <div>
-        You are in your lecture with your textbook open wide. Your lecturer says it's important, I'm sure you would h _ _ _ _ _ _ _ _  . Though such knowledge may be good, knowing someone is what you should. 
-      </div>
+        You are in your Lecture with your textbook open wide. Your lecturer says it's important, I'm sure you would h _ _ _ _ _ _ _ _ . 
       </main>
   );
 }

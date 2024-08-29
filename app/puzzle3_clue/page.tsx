@@ -35,7 +35,7 @@ export default function about_us() {
           <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
       <div>
-        <a href="#" style={{ textDecoration: 'underline' }} onClick={handleLinkClick}>Do not </a><a href="#" onClick={handleLinkClick}>Click</a>
+        <a href="#" style={{ textDecoration: 'underline', fontWeight: 'bolder' }} onClick={handleLinkClick}>Do not </a><a href="#" onClick={handleLinkClick}>click</a>
       </div>
       </main>
   );

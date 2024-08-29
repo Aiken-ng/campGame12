@@ -63,7 +63,7 @@ export default function App() {
         <li><Link href="/puzzle3_clue2"><a>Puzzle 3 hint 2</a></Link></li>
         </ul>
       <div style={{ width: '300px' }}> {/* Set a container width if needed */}
-      <TypingEffect text="if you do not know the password, trying solving the other puzzles first! All the best for getting so far"/>
+      <TypingEffect text="iff you do not know the password, trying solving the other puzzles first! All the best for getting so far"/>
       </div>
       </main>
   );

@@ -91,7 +91,7 @@ const SnakeGame: React.FC = () => {
                     setFood(generateFoodPosition());
                     setScore(prevScore => {
                         const newScore = prevScore + 1;
-                        if (newScore === 10) alert('Congratulations! You have eaten 10 apples! Btw, the password that is required is from the puzzle piece that required a webcam... :)!');
+                        if (newScore === 10) alert('Not only are all the treasures of wisdom and knowledge hidden in Christ. But Christ in you is also your greatest hope of glory! Do everything you can to present everyone perfect in Christ!');
                         return newScore;
                     });
                 } else {

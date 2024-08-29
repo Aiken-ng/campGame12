@@ -12,7 +12,7 @@ import { useAuthenticator, Authenticator } from '@aws-amplify/ui-react';
 Amplify.configure(outputs);
 import Snakegame from "../snakegame";
 
-function App() {
+export default function App(){
   return (
       <main>
         <ul>
